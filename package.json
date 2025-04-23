@@ -1,0 +1,28 @@
+{
+  "name": "nextjs-project",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "emulator": "firebase emulators:start --import=./saved-emulator-data --export-on-exit=./saved-emulator-data",
+    "dev-with-emulator": "firebase emulators:start --import=./saved-emulator-data --export-on-exit=./saved-emulator-data & next dev",
+    "firebase:deploy": "next build && firebase deploy"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.2",
+    "supabase": "^2.15.8",
+    "typescript": "5.8.3"
+  },
+  "dependencies": {
+    "firebase": "^11.6.0",
+    "firebase-admin": "^13.2.0",
+    "next": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "uuid": "^11.1.0",
+    "zod": "^3.24.3"
+  }
+}

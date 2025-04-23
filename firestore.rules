@@ -1,0 +1,51 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Common helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+    
+    // Notes collection rules
+    match /notes/{noteId} {
+      // Allow read if authenticated and the note belongs to the user
+      allow read: if isSignedIn() && isOwner(resource.data.userId);
+      
+      // Allow write if authenticated and the note belongs to the user
+      allow create: if isSignedIn() && isOwner(request.resource.data.userId);
+      allow update, delete: if isSignedIn() && isOwner(resource.data.userId);
+    }
+    
+    // Classes collection rules
+    match /classes/{classId} {
+      // Allow anyone to read classes (needed for dashboard)
+      allow read: if true;
+      
+      // Only allow teacher to create/update/delete their own classes
+      allow create: if isSignedIn() && isOwner(request.resource.data.teacherId);
+      allow update, delete: if isSignedIn() && isOwner(resource.data.teacherId);
+      
+      // Allow access to the students subcollection
+      match /students/{studentId} {
+        allow read: if true;
+        allow write: if isSignedIn();
+      }
+    }
+    
+    // User collection rules
+    match /users/{userId} {
+      allow read: if true;
+      allow write: if isSignedIn() && isOwner(userId);
+    }
+    
+    // For all other collections, deny access by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

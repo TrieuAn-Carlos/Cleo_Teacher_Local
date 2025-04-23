@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Class Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  
+  <div class="dashboard">
+    <!-- Header -->
+    <div class="header">
+      <div class="class-view-title">
+        <span class="logo-circle"></span>
+        Cleo
+      </div>
+      <div class="user">
+        <i class="fa fa-user-circle"></i>
+      </div>
+    </div>
+    <hr class="divider">
+    <!-- Main Content -->
+    <div class="main-content">
+      <h1>D13 - German A1.1</h1>
+      <!-- Arrow button -->
+      <button id="show-active-btn" class="icon-btn">
+        <i class="fas fa-play"></i>
+      </button>
+
+      <!-- Blue frame: Hide by default -->
+      <div id="active-class-box" class="active-class-box">
+        <div class="now-label"><span><i class="fas fa-bolt"></i> Now</span></div>
+        <div class="attendance-bar">
+          <span class="dot present"></span>
+          <span class="dot present"></span>
+          <span class="dot present"></span>
+          <span class="dot present"></span>
+          <span class="dot present"></span>
+          <span class="dot present"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+        <button class="verify-btn"><i class="fas fa-check-circle"></i> Verify</button>
+        <!-- Close button -->
+        <button id="close-active-btn" class="close-btn"><i class="fas fa-stop"></i></button>
+      </div>
+
+      <!-- Dual list -->
+      <div class="lists-row">
+        <!-- Past Sessions -->
+        <div class="list-box">
+          <div class="label-row">
+            <div class="custom-label">
+              <i class="fas fa-calendar-check"></i>
+              <span>Past Sessions</span>
+            </div>
+          </div>
+          <ul>
+            <li><span class="dot blue"></span>This Monday's Session <span class="badge">24/24</span></li>
+            <li><span class="dot blue"></span>This Monday's Session <span class="badge">24/24</span></li>
+            <li><span class="dot blue"></span>This Monday's Session <span class="badge">24/24</span></li>
+          </ul>
+        </div>
+        <!-- Students -->
+        <div class="list-box">
+            <div class="label-row">
+              <div class="custom-label">
+                <i class="fas fa-users"></i>
+                Students
+              </div>
+              <div class="icon-group">
+                <div class="icon-group">
+                  <span class="circle-btn"><i class="fas fa-search"></i></span>
+                  <span class="circle-btn"><i class="fas fa-plus"></i></span>
+                </div>
+                
+              </div>
+            </div>
+          <ul>
+            <li><span class="avatar">JN</span> Josh Nguyen <i class="fas fa-ellipsis-v"></i></li>
+            <li><span class="avatar">JN</span> Josh Nguyen <i class="fas fa-ellipsis-v"></i></li>
+            <li><span class="avatar">JN</span> Josh Nguyen <i class="fas fa-ellipsis-v"></i></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

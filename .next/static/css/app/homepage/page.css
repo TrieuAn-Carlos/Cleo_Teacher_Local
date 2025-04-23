@@ -1,0 +1,1005 @@
+/*!*************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[13].oneOf[12].use[3]!./app/globals.css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+/* Modified body styles to allow content scrolling in dashboard */
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-start-rgb));
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+
+.homepage-body {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+/* Ẩn thanh thông báo Firebase Emulator (cái gì mà for testing purpose) */
+body > iframe[style*="z-index: 2147483647"] {
+  display: none !important;
+}
+
+/* Hoặc sử dụng selector cụ thể hơn nếu cần */
+.firebase-emulator-warning {
+  display: none !important;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Utilities for layout */
+.bg-black {
+  background-color: #000 !important;
+}
+
+.text-white {
+  color: #fff !important;
+}
+
+.min-h-screen {
+  min-height: 100vh !important;
+}
+
+.flex {
+  display: flex !important;
+}
+
+.flex-col {
+  flex-direction: column !important;
+}
+
+/* Styles removed for body, handled by layout */
+
+/* Optional: Keep laptop styles if needed elsewhere, otherwise remove */
+.laptop-container { /* ... */ }
+.laptop-screen { /* ... */ }
+.laptop-base { /* ... */ }
+.content { /* ... */ }
+
+/* Original Header Styles */
+/* 
+  COMMENTING OUT - These are being superseded by .hero-header styles below 
+*/
+.header {
+  margin-top: 5%;
+  text-align: center; /* Added for centering */
+}
+/* Styles for Hero Section text elements */
+.hero-header {
+  text-align: center;
+  margin-bottom: 30px; 
+  z-index: 2;
+  margin-top: 0; /* Removed margin-top */
+}
+
+.meet-cleo-text {
+  font-size: 2.64rem; 
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #ffffff; 
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.main-heading {
+  font-size: 5.28rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ff8a00, #e52e71, #9851e0, #3023ae);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0 15px;
+  line-height: 1.1;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.sub-heading {
+  font-size: 2.64rem; 
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 0.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effects adjusted */
+.hero-header:hover .meet-cleo-text {
+   transform: scale(1.05);
+   color: #aaa;
+}
+
+.hero-header:hover .main-heading,
+.hero-header:hover .sub-heading {
+   transform: scale(1.02);
+   color: #ddd;
+}
+
+/* Sign-in Button Styles */
+.google-signin-button {
+  display: none;
+}
+
+.google-signin-button-inner {
+  display: none;
+}
+
+.google-icon {
+  margin-right: 0; 
+  width: 24px; 
+  height: 24px; 
+  vertical-align: middle;
+}
+
+/* Inner highlight effect */
+.google-signin-button-inner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0));
+  border-radius: 61px 61px 0 0;
+  pointer-events: none;
+}
+
+/* Hover effect for the container (outline) */
+.google-signin-button:hover {
+  background: #f5f5f5;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transform: translateY(-1px);
+  box-shadow: 
+    0 0 15px rgba(40, 40, 40, 0.25),
+    0 0 20px rgba(255, 0, 0, 0.5), 
+    0 0 30px rgba(255, 165, 0, 0.3), 
+    0 0 40px rgba(255, 255, 0, 0.3), 
+    0 0 50px rgba(0, 255, 0, 0.3),
+    0 0 60px rgba(0, 0, 255, 0.3),
+    0 0 80px rgba(128, 0, 128, 0.3);
+}
+
+/* Hover effect for the inner button */
+.google-signin-button:hover .google-signin-button-inner {
+  background: linear-gradient(to bottom, #ffffff, #f0f0f0); /* Lighter gray when hovering */
+}
+
+/* Animation for the rainbow outline */
+@keyframes rainbow-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Rainbow glow effect */
+@keyframes magical-glow {
+  0% {
+    box-shadow:
+      0 0 15px rgba(40, 40, 40, 0.25),
+      0 0 20px rgba(255, 0, 0, 0.3),
+      0 0 30px rgba(255, 165, 0, 0.2),
+      0 0 40px rgba(255, 255, 0, 0.1);
+  }
+  33% {
+    box-shadow:
+      0 0 15px rgba(40, 40, 40, 0.25),
+      0 0 20px rgba(0, 255, 0, 0.3),
+      0 0 30px rgba(0, 255, 255, 0.2),
+      0 0 40px rgba(0, 0, 255, 0.1);
+  }
+  66% {
+    box-shadow: 
+      0 0 15px rgba(40, 40, 40, 0.25),
+      0 0 20px rgba(0, 0, 255, 0.3),
+      0 0 30px rgba(128, 0, 128, 0.2),
+      0 0 40px rgba(255, 0, 255, 0.1);
+  }
+  100% {
+    box-shadow:
+      0 0 15px rgba(40, 40, 40, 0.25),
+      0 0 20px rgba(255, 0, 0, 0.3),
+      0 0 30px rgba(255, 165, 0, 0.2),
+      0 0 40px rgba(255, 255, 0, 0.1);
+  }
+}
+
+/* Active state */
+.google-signin-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.google-signin-button:active .google-signin-button-inner {
+  background: linear-gradient(to bottom, #e8e8e8, #d8d8d8);
+}
+
+/* Welcome message style */
+.welcome-message {
+  font-size: 1.5rem;
+  color: #eee;
+  margin-bottom: 15px; 
+}
+
+/* Container adjustments */
+.container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 0;
+  height: 100vh; 
+  max-height: 100vh; 
+  color: #fff;
+  overflow: hidden;  /* Tắt scroll */
+  min-height: 100vh; 
+}
+
+/* Container adjustments for homepage */
+.hero-section-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh; /* Ensure it takes at least full viewport height */
+  max-height: 100vh;
+  color: #fff;
+  overflow: hidden; /* Tắt scroll */
+  padding-top: 90px; 
+}
+
+/* Thiết lập Semi-circle - đặt ở vị trí đủ thấp để không chồng lên các nút */
+.semi-circle {
+  position: absolute;
+  bottom: -350px; 
+  width: 100.44vw;
+  height: 50.22vw;
+  max-width: 1160.64px;
+  max-height: 580.32px;
+  background: linear-gradient(90deg, #00a1ff, #4a6aff, #9c44ff, #d83aff, #ff359f, #ff3d47, #ff8a00, #ffc100);
+  border-radius: 580.32px 580.32px 0 0;
+  filter: grayscale(100%);
+  z-index: 1;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 40px rgba(255, 255, 255, 0.2), 0 0 60px rgba(255, 255, 255, 0.1);
+  animation: pulseGlow 3s infinite alternate;
+  transition: filter 1s ease, box-shadow 1.2s ease;
+}
+
+/* White semi-circle on top - chỉ một định nghĩa duy nhất */
+.semi-circle-top {
+  position: absolute;
+  bottom: -350px; /* Cùng giá trị với .semi-circle */
+  width: 90.4vw;
+  height: 45.2vw;
+  max-width: 1044.58px;
+  max-height: 522.29px;
+  background: #ffffff;
+  border-radius: 522.29px 522.29px 0 0;
+  z-index: 2;
+}
+
+@keyframes pulseGlow {
+  from {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2), 0 0 40px rgba(255, 255, 255, 0.1);
+  }
+  to {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3), 0 0 50px rgba(255, 255, 255, 0.2), 0 0 70px rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* Hiệu ứng hover cho các phần tử header - hiệu ứng glowing theo hình dạng chữ */
+.meet-cleo-container:hover .meet-cleo-text,
+.automagical-container:hover .main-heading,
+.sub-heading:hover {
+  color: white !important;
+  transform: scale(1.05);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 1;
+  
+  /* Hiệu ứng glow cầu vồng theo hình dạng chữ */
+  text-shadow: 
+    0 0 2px #fff,
+    0 0 3px #fff,
+    0 0 5px #ff0000,
+    0 0 7px #ff7f00,
+    0 0 9px #ffff00,
+    0 0 11px #00ff00,
+    0 0 13px #0000ff,
+    0 0 15px #4b0082,
+    0 0 17px #8b00ff;
+}
+
+/* White semi-circle on top - 10% smaller and responsive */
+.semi-circle-top {
+  position: absolute;
+  bottom: -200px;
+  width: 81vw;
+  height: 40.5vw;
+  max-width: 1040px;
+  max-height: 520px;
+  background: #ffffff;
+  border-radius: 520px 520px 0 0;
+  z-index: 2;
+}
+
+/* No special glow effect for white semi-circle when hovered */
+.semi-circle-top:hover {
+  /* No box-shadow here - the glow should only be on the larger circle */
+}
+
+/* Remove gray background semi-circle */
+.semi-circle2 {
+  display: none; /* Hide the old gray semi-circle */
+}
+
+/* Styles for TopBar */
+.top-bar {
+  position: fixed; /* Fixed at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px; 
+  background-color: rgba(10, 10, 10, 0.9); /* Less transparent for sharper appearance */
+  backdrop-filter: blur(5px); /* Reduced blur effect */
+  -webkit-backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Slightly more visible border */
+}
+
+.top-bar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Space between logo and nav */
+  width: 100%; /* Take full width within padding */
+}
+
+.top-bar-logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none; /* Remove underline from link */
+}
+
+.top-bar-logo {
+  width: 30px; /* Adjust size */
+  height: 30px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-right: 12px; /* Space between logo and text */
+  transition: transform 0.3s ease;
+}
+
+.top-bar-text {
+  color: #fff;
+  font-size: 1.5rem; /* Adjust size */
+  font-weight: 600; /* Semi-bold */
+  letter-spacing: 1px;
+  transition: text-shadow 0.4s ease, transform 0.3s ease; /* Transition for glow and slight scale */
+  cursor: pointer;
+}
+
+/* Magical glow effect on hover */
+.top-bar-text:hover {
+  text-shadow:
+    0 0 7px rgba(255, 255, 255, 1),
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 21px rgba(255, 255, 255, 0.6),
+    0 0 42px rgba(0, 191, 255, 0.5), 
+    0 0 82px rgba(0, 191, 255, 0.4),
+    0 0 92px rgba(0, 191, 255, 0.3),
+    0 0 102px rgba(0, 191, 255, 0.2),
+    0 0 151px rgba(0, 191, 255, 0.1);
+  transform: scale(1.02); 
+}
+
+.top-bar-logo-link:hover .top-bar-logo {
+    transform: rotate(360deg) scale(1.1); /* Rotate and scale logo on link hover */
+}
+
+
+/* Media queries for different screen sizes */
+@media (max-width: 768px) {
+  .semi-circle {
+    width: min(95vw, 800px); /* Slightly wider on smaller screens */
+    height: min(47.5vw, 400px);
+    border-radius: min(47.5vw, 400px) min(47.5vw, 400px) 0 0;
+    bottom: -180px; /* Điều chỉnh cho màn hình trung bình */
+  }
+  
+  .semi-circle-top {
+    width: min(85.5vw, 720px); /* 10% smaller */
+    height: min(42.75vw, 360px);
+    border-radius: min(42.75vw, 360px) min(42.75vw, 360px) 0 0;
+    bottom: -180px; /* Điều chỉnh để khớp với semi-circle */
+  }
+  
+  .hero-header {
+    margin-bottom: 1.5rem; /* Smaller margin on smaller screens */
+  }
+  
+  /* Slightly decrease line height for better fit */
+  .main-heading, .sub-heading {
+    line-height: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .semi-circle {
+    width: min(100vw, 600px); /* Full width on mobile */
+    height: min(50vw, 300px);
+    border-radius: min(50vw, 300px) min(50vw, 300px) 0 0;
+    bottom: -150px; /* Điều chỉnh cho màn hình nhỏ */
+  }
+  
+  .semi-circle-top {
+    width: min(90vw, 540px); /* 10% smaller */
+    height: min(45vw, 270px);
+    border-radius: min(45vw, 270px) min(45vw, 270px) 0 0;
+    bottom: -150px; /* Điều chỉnh để khớp với semi-circle */
+  }
+  
+  .hero-header {
+    margin-bottom: 1rem; /* Even smaller margin on mobile */
+  }
+  
+  /* Add more space between main-heading and sub-heading on small screens */
+  .main-heading {
+    margin-bottom: 0.1rem;
+  }
+}
+
+/* Title group container for all header elements */
+.title-group {
+  text-align: center;
+  position: relative;
+}
+
+/* Title group hover effect for semi-circle */
+.title-group:hover ~ .semi-circle,
+.title-group:hover ~ .semi-circle-top + .semi-circle {
+  filter: grayscale(0%) !important; /* Target state remains the same */
+  box-shadow: 
+    0 0 15px rgba(255, 255, 255, 0.7),
+    0 0 30px rgba(255, 255, 255, 0.4),
+    0 0 45px rgba(255, 255, 255, 0.2); /* Target state remains the same */
+}
+
+/* Meet Cleo hover animation */
+.meet-cleo-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Automagical container with arrows */
+.automagical-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+/* Make sub-heading interactive */
+.sub-heading {
+  cursor: pointer;
+}
+
+/* Arrow styles */
+.arrow {
+  width: 55px; /* Tăng thêm 10% từ 50px lên 55px */
+  height: auto;
+  position: relative;
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+  pointer-events: none; /* Make sure arrows don't interfere with hover */
+  filter: brightness(1);
+}
+
+.arrow-left {
+  margin-right: 15px;
+  transform: translateX(-20px); /* Initial position */
+}
+
+.arrow-right {
+  margin-left: 15px;
+  transform: translateX(20px); /* Initial position */
+}
+
+/* Hover animation - triggered by any title element hover */
+.title-group:hover .arrow,
+.meet-cleo-container:hover ~ .automagical-container .arrow,
+.automagical-container:hover .arrow,
+.sub-heading:hover ~ .automagical-container .arrow {
+  opacity: 1;
+  transform: translateX(0); /* Move to final position */
+  filter: drop-shadow(0 0 5px #ff0000) 
+         drop-shadow(0 0 8px #ff7f00)
+         drop-shadow(0 0 10px #ffff00)
+         drop-shadow(0 0 12px #00ff00)
+         drop-shadow(0 0 14px #0000ff)
+         drop-shadow(0 0 16px #4b0082)
+         drop-shadow(0 0 18px #8b00ff);
+  animation: rainbow-arrow 4s linear infinite;
+}
+
+/* Rainbow text animation */
+@keyframes rainbow-text {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Rainbow arrow animation */
+@keyframes rainbow-arrow {
+  0% { 
+    filter: drop-shadow(0 0 3px #ff0000) 
+           drop-shadow(0 0 5px #ff7f00);
+  }
+  33% {
+    filter: drop-shadow(0 0 3px #ffff00) 
+           drop-shadow(0 0 5px #00ff00);
+  }
+  66% {
+    filter: drop-shadow(0 0 3px #0000ff) 
+           drop-shadow(0 0 5px #4b0082);
+  }
+  100% { 
+    filter: drop-shadow(0 0 3px #8b00ff) 
+           drop-shadow(0 0 5px #ff0000);
+  }
+}
+
+/* Loading screen styles */
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loading-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-logo {
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.loading-text {
+  color: #fff;
+  font-size: 5rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Prevent scrolling when loading */
+.loading-active {
+  overflow: hidden;
+}
+
+/* Remove the previous pseudo-element glowing effect */
+.meet-cleo-container:hover .meet-cleo-text::after,
+.automagical-container:hover .main-heading::after,
+.sub-heading:hover::after {
+  display: none;
+}
+
+/* Make arrows responsive */
+@media (max-width: 768px) {
+  .arrow {
+    width: 148.5px; 
+  }
+  
+  .arrow-left {
+    margin-right: 10px;
+  }
+  
+  .arrow-right {
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .arrow {
+    width: 115.5px; /* Tăng thêm 10% từ 105px lên 115.5px */
+  }
+  
+  .arrow-left {
+    margin-right: 5px;
+  }
+  
+  .arrow-right {
+    margin-left: 5px;
+  }
+}
+
+/* Top bar nav styles */
+.top-bar-nav {
+  display: flex;
+  gap: 20px;
+}
+
+/* Hiệu ứng nút navigation */
+.nav-button {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Thiết lập Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* Đảm bảo hiển thị trên tất cả các phần tử khác */
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+
+.modal-container {
+  background-color: #111;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.modal-close-btn:hover {
+  color: white;
+}
+
+.modal-content {
+  padding: 20px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+.modal-content h3 {
+  margin-top: 20px;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.modal-content a {
+  color: #00a2ff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.modal-content a:hover {
+  color: #66c7ff;
+  text-decoration: underline;
+}
+
+.social-links {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+/* Animation for modal */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-container {
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+  z-index: 5;
+  position: relative;
+}
+
+.dashboard-link-button {
+  background: linear-gradient(45deg, #ff8a00, #e52e71);
+  color: white;
+  border: none;
+  padding: 12px 24px; /* Increased padding */
+  border-radius: 6px; /* Slightly larger radius */
+  font-weight: 600; /* Slightly bolder */
+  font-size: 1rem;  /* Standard font size */
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: relative; /* Needed for pseudo-element */
+  z-index: 1; /* Ensure content is above pseudo-element */
+  overflow: visible; /* Allow pseudo-element glow to extend outside */
+}
+
+/* Create the pseudo-element for the border/glow */
+.dashboard-link-button::before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: transparent;
+  border-radius: 8px;
+  z-index: -1; /* Behind the button */
+  transition: opacity 1s ease, filter 1.2s ease; 
+  opacity: 0;
+  filter: blur(5px);
+}
+
+.dashboard-link-button:hover {
+  transform: translateY(-3px); 
+
+}
+
+/* Apply glowing effect to the pseudo-element on hover */
+.dashboard-link-button:hover::before {
+  opacity: 1; /* Fade in */
+  background: linear-gradient(45deg, #ff8a00, #e52e71, #ff8a00);
+  background-size: 200% 200%;
+  filter: blur(5px); /* Maintain blur or adjust if needed */
+}
+
+.login-buttons-container {
+  display: flex;
+  flex-direction: row; /* Thay đổi từ column thành row để nút nằm trên một dòng */
+  align-items: center;
+  justify-content: center; /* Căn giữa nút theo chiều ngang */
+  width: 100%;
+  margin-top: 10px;
+}
+
+.login-buttons-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Điều chỉnh khoảng cách giữa nút chính và nút mock signin (nếu có) */
+.mock-signin-button {
+  margin-top: 10px; /* Đổi từ margin-left thành margin-top */
+  background: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mock-signin-button:hover {
+  background: #555;
+}
+
+/* Pill-shaped signin container styles */
+.pill-signin-container {
+  display: flex;
+  background-color: #fff;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 450px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.pill-signin-container:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.pill-email-input {
+  flex: 1 1;
+  border: none;
+  padding: 15px 20px;
+  font-size: 16px;
+  outline: none;
+  color: #333;
+  background: transparent;
+}
+
+.pill-signin-button {
+  border: none;
+  background-color: #7d7d7d;
+  color: white;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s;
+  margin: 4px 4px 4px 0;
+}
+
+.pill-signin-button:hover {
+  background-color: #666666;
+}
+
+.pill-signin-button:active {
+  transform: scale(0.98);
+}
+
+.pill-signin-button:disabled {
+  background-color: #bbb;
+  cursor: not-allowed;
+}
+
+/* Pill-shaped Google button styles */
+.pill-google-button {
+  background-color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 0;
+  cursor: pointer;
+  width: auto; 
+  max-width: 240px; /* Giữ nguyên giá trị này */
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  overflow: visible;
+  position: relative;
+  padding: 0; /* Bỏ padding để điều chỉnh thông qua content */
+}
+
+/* Tạo outline cho nút dạng viên thuốc */
+.pill-google-button::before {
+  content: '';
+  position: absolute;
+  top: -3.6px; /* Tăng 20% từ -3px lên -3.6px */
+  left: -3.6px; /* Tăng 20% từ -3px lên -3.6px */
+  right: -3.6px; /* Tăng 20% từ -3px lên -3.6px */
+  bottom: -3.6px; /* Tăng 20% từ -3px lên -3.6px */
+  background: #7d7d7d;
+  border-radius: 50px;
+  z-index: -1;
+  transition: all 0.4s ease;
+}
+
+/* Hiệu ứng khi hover vào nút */
+.pill-google-button:hover::before {
+  background: linear-gradient(90deg, #00a1ff, #4a6aff, #9c44ff, #d83aff, #ff359f, #ff3d47, #ff8a00, #ffc100, #00a1ff);
+  background-size: 300% 100%;
+  animation: moveGradient 4s linear infinite;
+  box-shadow: 
+    0 0 5px rgba(0, 161, 255, 0.5),
+    0 0 15px rgba(151, 68, 255, 0.3),
+    0 0 25px rgba(255, 53, 159, 0.2);
+  filter: blur(0.5px);
+}
+
+/* Hiệu ứng di chuyển gradient */
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
+
+.pill-button-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 9.6px 72px; 
+  font-size: 16.8px;
+  font-weight: 500;
+  color: #444;
+  border-radius: 48px;
+  background-color: white;
+  white-space: nowrap;
+}
+
+.pill-google-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.pill-google-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Hide old button classes but keep the styles for backwards compatibility */
+.google-signin-button,
+.google-signin-button-inner {
+  display: none;
+}

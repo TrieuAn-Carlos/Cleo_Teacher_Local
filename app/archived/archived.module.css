@@ -1,0 +1,433 @@
+/* Archived page styles - based on dashboard styles */
+
+/* App Layout */
+.archivedApp {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  background: #181818;
+}
+
+/* Header with absolute positioning to ensure it's at the top */
+.archivedHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  border-bottom: 1.5px solid #232323;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #181818;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.archivedLogo {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Style for the text span within the logo */
+.archivedLogo span {
+  color: #fff;
+  transition: text-shadow 0.4s ease, transform 0.3s ease;
+  cursor: default;
+}
+
+/* Add hover effect similar to homepage top bar */
+.archivedLogo span:hover {
+  text-shadow:
+    0 0 7px rgba(255, 255, 255, 1),
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 21px rgba(255, 255, 255, 0.6),
+    0 0 42px rgba(0, 191, 255, 0.5),
+    0 0 82px rgba(0, 191, 255, 0.4),
+    0 0 92px rgba(0, 191, 255, 0.3),
+    0 0 102px rgba(0, 191, 255, 0.2),
+    0 0 151px rgba(0, 191, 255, 0.1);
+  transform: scale(1.02); /* Slight scale effect */
+}
+
+.archivedLogoCircle {
+  width: 22px;
+  height: 22px;
+  background: #fff;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.archivedHeaderIcons {
+  display: flex;
+  gap: 18px;
+}
+
+/* Icon button with question mark for confirmation */
+.archivedIconButton {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.15s;
+  position: relative; /* For positioning the question mark */
+}
+
+.archivedIconButton:hover {
+  background: #232323;
+}
+
+/* Style for question mark */
+.questionMark {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background-color: #ff6b6b;
+  color: white;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  animation: pulse-red 1.5s infinite;
+}
+
+@keyframes pulse-red {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(255, 107, 107, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 107, 107, 0);
+  }
+}
+
+/* Main Content */
+.archivedMainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 96px; /* Ensure content doesn't get hidden by fixed header */
+  padding-bottom: 40px;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.archivedHeading {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #fff;
+  text-align: center;
+}
+
+/* Content Container */
+.archivedContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Table Styles */
+.archivedTable {
+  width: 90%;
+  max-width: 900px;
+  background: #232323;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1.5px solid #333;
+  margin-top: 20px;
+  border-spacing: 0;
+}
+
+.archivedTable th {
+  background: #1a1a1a;
+  color: #bbb;
+  font-weight: 600;
+  text-align: left;
+  padding: 16px 20px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #333;
+}
+
+.archivedTable td {
+  padding: 16px 20px;
+  color: #fff;
+  border-bottom: 1px solid #2a2a2a;
+  font-size: 15px;
+}
+
+.archivedTable tr:last-child td {
+  border-bottom: none;
+}
+
+.archivedTable tr:hover {
+  background: #1e1e1e;
+  cursor: pointer;
+}
+
+.archivedClassName {
+  font-weight: 600;
+  color: #fff;
+}
+
+.archivedSubject {
+  color: #bbb;
+}
+
+.archivedRoom {
+  color: #bbb;
+}
+
+/* Action Buttons */
+.actionButtons {
+  display: flex;
+  gap: 8px;
+}
+
+/* Revert Button */
+.revertButton {
+  background: none;
+  border: none;
+  color: #6bff6b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.15s;
+  position: relative;
+}
+
+.revertButton:hover {
+  background: rgba(107, 255, 107, 0.1);
+}
+
+/* Copy Button for Admin */
+.copyButton {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+
+.copyButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Empty State */
+.emptyState {
+  width: 85%;
+  max-width: 600px;
+  height: 260px;
+  border: 1px solid #333333;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #151515;
+  margin: 30px auto;
+}
+
+.emptyStateIcon {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.emptyStateText {
+  color: #5e5e5e;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+  font-weight: 400;
+}
+
+/* Notification Banner */
+.notificationBanner {
+  position: fixed;
+  left: 24px;
+  top: 65px; /* Just below the header */
+  z-index: 999;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: slideInDown 0.3s forwards, fadeOut 0.3s 2.2s forwards;
+}
+
+@keyframes slideInDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.notificationBanner.success {
+  background-color: rgba(0, 255, 0, 0.1);
+  border: 1px solid rgba(107, 255, 107, 0.3);
+  color: #6bff6b;
+}
+
+.notificationBanner.error {
+  background-color: rgba(255, 0, 0, 0.1);
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  color: #ff6b6b;
+}
+
+.notificationBanner.loading {
+  background-color: rgba(255, 165, 0, 0.1);
+  border: 1px solid rgba(255, 165, 0, 0.3);
+  color: #ffa500;
+}
+
+.notificationBanner button {
+  background: none;
+  border: none;
+  padding: 0 0 0 8px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Link back to Dashboard */
+.backLink {
+  display: flex;
+  align-items: center;
+  color: #6baaff;
+  font-size: 15px;
+  gap: 8px;
+  margin: 16px 0;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.backLink:hover {
+  color: #90c2ff;
+}
+
+/* Special Admin Bar */
+.adminBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 107, 107, 0.9);
+  padding: 10px 20px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.adminBarText {
+  font-weight: 600;
+}
+
+.adminBarButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.adminBarButton {
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.adminBarButton:hover {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  top: 70px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  z-index: 2000;
+  animation: fadeInOut 3s;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(-20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .archivedTable {
+    width: 95%;
+  }
+  
+  .archivedTable th,
+  .archivedTable td {
+    padding: 12px 10px;
+    font-size: 14px;
+  }
+  
+  .actionButtons {
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .adminBarButtons {
+    flex-direction: column;
+    gap: 5px;
+  }
+}

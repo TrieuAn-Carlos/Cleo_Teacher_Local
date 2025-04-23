@@ -1,0 +1,36 @@
+{
+  "emulators": {
+    "auth": {
+      "port": 9098
+    },
+    "functions": {
+      "port": 5001
+    },
+    "firestore": {
+      "port": 8002
+    },
+    "ui": {
+      "enabled": true,
+      "port": 4000
+    },
+    "hosting": {
+      "port": 5000
+    },
+    "singleProjectMode": true,
+    "export": {
+      "directory": "./saved-emulator-data"
+    },
+    "import": {
+      "directory": "./saved-emulator-data"
+    }
+  },
+  "hosting": {
+    "source": ".",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    // Removed frameworksBackend to avoid cloud access during emulator usage
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  }
+}

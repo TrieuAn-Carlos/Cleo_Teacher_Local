@@ -1,0 +1,320 @@
+/* Session page styles */
+
+.sessionPage {
+  min-height: 100vh;
+  background: #181818;
+  color: #fff;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header styles */
+.sessionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: #232323;
+  border-bottom: 1px solid #333;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: #bdbdbd;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.backButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.sessionTitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.sessionActions {
+  display: flex;
+  gap: 8px;
+}
+
+.startSessionButton, .endSessionButton, .loadingButton {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.startSessionButton {
+  background: #0070f3;
+  color: white;
+}
+
+.startSessionButton:hover:not(:disabled) {
+  background: #0060df;
+}
+
+.endSessionButton {
+  background: #f44336;
+  color: white;
+}
+
+.endSessionButton:hover:not(:disabled) {
+  background: #d32f2f;
+}
+
+.loadingButton, .startSessionButton:disabled, .endSessionButton:disabled {
+  background: #555;
+  color: #ddd;
+  cursor: not-allowed;
+}
+
+.endedStatus {
+  padding: 8px 16px;
+  background: #333;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Error message styles */
+.errorMessage {
+  margin: 16px;
+  padding: 12px 16px;
+  background: rgba(244, 67, 54, 0.2);
+  border: 1px solid #f44336;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.errorMessage p {
+  margin: 0;
+  color: #f44336;
+}
+
+.errorMessage button {
+  background: transparent;
+  border: none;
+  color: #f44336;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Content area styles */
+.sessionContent {
+  flex: 1;
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.attendanceContainer {
+  background: #232323;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.attendanceTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  margin: 0;
+  background: #333;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.attendanceCount {
+  font-size: 14px;
+  color: #aaa;
+  font-weight: normal;
+}
+
+.noAttendanceMessage {
+  padding: 32px;
+  text-align: center;
+  color: #bdbdbd;
+}
+
+.noAttendanceMessage p {
+  margin: 8px 0;
+}
+
+/* Table styles */
+.attendanceTable {
+  width: 100%;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 80px;
+  padding: 12px 24px;
+  background: #2a2a2a;
+  border-bottom: 1px solid #333;
+  font-weight: 600;
+  font-size: 14px;
+  color: #ddd;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 80px;
+  padding: 12px 24px;
+  border-bottom: 1px solid #333;
+  align-items: center;
+  transition: background 0.2s;
+}
+
+.tableRow:last-child {
+  border-bottom: none;
+}
+
+.tableRow:hover {
+  background: #2a2a2a;
+}
+
+.nameCell {
+  font-weight: 500;
+}
+
+.statusCell, .timeCell, .actionCell {
+  text-align: left;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+/* Status-specific badge styles */
+.verified {
+  background: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+}
+
+.checked_in {
+  background: rgba(52, 152, 219, 0.2);
+  color: #3498db;
+}
+
+.pending {
+  background: rgba(241, 196, 15, 0.2);
+  color: #f1c40f;
+}
+
+.failed_location {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+}
+
+.absent {
+  background: rgba(189, 189, 189, 0.2);
+  color: #bdbdbd;
+}
+
+.checked_out_early_before_verification {
+  background: rgba(155, 89, 182, 0.2);
+  color: #9b59b6;
+}
+
+.failed_other {
+  background: rgba(230, 126, 34, 0.2);
+  color: #e67e22;
+}
+
+.actionButton {
+  background: none;
+  border: none;
+  color: #bdbdbd;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.actionButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* Loading container */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #181818;
+  color: #fff;
+}
+
+.loadingSpinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border-top-color: #0070f3;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .tableHeader, .tableRow {
+    grid-template-columns: 2fr 1fr 1fr 60px;
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  
+  .sessionTitle {
+    display: none;
+  }
+  
+  .attendanceTitle {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+@media (max-width: 640px) {
+  .tableHeader, .tableRow {
+    grid-template-columns: 2fr 1fr 80px;
+  }
+  
+  .timeCell {
+    display: none;
+  }
+} 

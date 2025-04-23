@@ -1,0 +1,187 @@
+"use client";
+
+import React, { useState } from "react";
+import { useAuth } from "../../context/AuthContext";
+import styles from "../dashboard/dashboard.module.css";
+import Image from "next/image";
+
+interface CourseTopBarProps {
+  onFeedbackClick: () => void;
+  onLogoutClick?: () => void;
+  logoutClickCount?: number;
+  courseName?: string;
+  onShowCodeClick?: () => void;
+  joinCode?: string;
+  onAdminConfigClick?: () => void;
+}
+
+const CourseTopBar: React.FC<CourseTopBarProps> = ({
+  onFeedbackClick,
+  onLogoutClick,
+  logoutClickCount = 0,
+  // courseName, // No longer needed for display
+  onShowCodeClick,
+  joinCode,
+  onAdminConfigClick,
+}) => {
+  const { signOut } = useAuth();
+  const [internalLogoutClickCount, setInternalLogoutClickCount] = useState(0);
+
+  // Xử lý đăng xuất với xác nhận đơn giản
+  const handleLogout = () => {
+    if (onLogoutClick) {
+      // Nếu được truyền từ component cha
+      onLogoutClick();
+    } else {
+      // Nếu không được truyền từ component cha, sử dụng logic nội bộ
+      // Tăng bộ đếm mỗi lần click
+      const newCount = internalLogoutClickCount + 1;
+      setInternalLogoutClickCount(newCount);
+
+      // Khi click lần đầu
+      if (internalLogoutClickCount === 0) {
+        // Đặt timeout -> 3s reset
+        setTimeout(() => {
+          setInternalLogoutClickCount(0);
+        }, 3000);
+      }
+      // Khi click lần thứ hai
+      else if (internalLogoutClickCount === 1) {
+        // Thực hiện đăng xuất
+        signOut();
+        // Reset bộ đếm
+        setInternalLogoutClickCount(0);
+      }
+    }
+  };
+
+  // Sử dụng giá trị clickCount từ props nếu được cung cấp, nếu không sử dụng state nội bộ
+  const currentLogoutClickCount = onLogoutClick
+    ? logoutClickCount
+    : internalLogoutClickCount;
+
+  return (
+    <header
+      className={styles.dashboardHeader}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        margin: 0,
+        padding: "12px 24px",
+        zIndex: 1000,
+        height: "60px",
+      }}
+    >
+      <div className={styles.dashboardLogo}>
+        <div className={styles.dashboardLogoCircle}></div>
+        <span>Cleo | Course</span>
+      </div>
+      <div className={styles.dashboardHeaderIcons}>
+        {onShowCodeClick && joinCode && (
+          <button
+            className={styles.dashboardIconButton}
+            onClick={onShowCodeClick}
+            title="Show Join Code"
+            style={{ display: "flex", alignItems: "center", gap: "8px" }}
+          >
+            <Image
+              src="/icons/showcode.svg"
+              alt="Show Code"
+              width={20}
+              height={20}
+            />
+            <span>{joinCode}</span>
+          </button>
+        )}
+        {onAdminConfigClick && (
+          <button
+            className={styles.dashboardIconButton}
+            onClick={onAdminConfigClick}
+            title="Admin Configuration"
+            style={{ display: "flex", alignItems: "center", gap: "8px" }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M12 2a3 3 0 0 0-3 3v1h6V5a3 3 0 0 0-3-3z"></path>
+              <path d="M19 5H5a2 2 0 0 0-2 2v1h18V7a2 2 0 0 0-2-2z"></path>
+              <path d="M3 10v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-8z"></path>
+              <path d="M10 14h4"></path>
+            </svg>
+            <span>Admin</span>
+          </button>
+        )}
+        <button
+          className={styles.dashboardIconButton}
+          onClick={onFeedbackClick}
+          title="Ask for Help"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </button>
+        <button className={styles.dashboardIconButton} onClick={handleLogout}>
+          {currentLogoutClickCount === 1 ? (
+            <>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+              </svg>
+              <span className={styles.questionMark}>?</span>
+            </>
+          ) : (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+          )}
+        </button>
+      </div>
+    </header>
+  );
+};
+
+export default CourseTopBar;
